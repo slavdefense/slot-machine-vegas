@@ -21,14 +21,16 @@
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid
 let results =[ ]
-
+// key value pairs of numbers with symbols
 const ref =[{9:'bar'},{8:"7"},{7:"7"},{6:
 "bell"},{5:"bell"},{4:'bell'},{3:
 "grape"},{2:"grape"},{1:"grape"},{0:"grape"}]
 
 
+// winning combinations
+const winning_combinations = [['bar','bar','bar'],['7','7','7'],['bell','bell','bell'],['grape','grape','grape']]
 
-const ourNum =[null,null,null]
+const symbols =['bell','bell','bell']
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -61,39 +63,57 @@ function playGame(){
 let numberFirst = Math.floor(Math.random()*10)
 let numberSecond = Math.floor(Math.random()*10)
 let numberThird = Math.floor(Math.random()*10)
-console.log(numberFirst)
-// ourNum[0]=numberFirst
-// ourNum[1]=numberSecond
-// ourNum[2]=numberThird
-// console.log (ourNum)
-render(ref,numberFirst,numberSecond,numberThird)
+
+//call arr function
+display(ref,numberFirst,numberSecond,numberThird)
 // first_slot.innerText=numberFirst
 // second_slot.innerText=numberSecond
 // third_slot.innerText=numberThird
 
 }
 
-
-function render(ref,numberFirst,numberSecond,numberThird){
+//Match the random numbers with an icon to display in the slot machine
+function display(ref,numberFirst,numberSecond,numberThird){
   
   for(item of ref){
     for(let [key,value] of Object.entries(item)){
-      // console.log(`key:${key} value:${value}`)
+      // first random number matched to a symbol
       if(parseInt(key)===numberFirst){
-        console.log(value)
-        
+        symbols[0]=value
+        console.log(symbols)
       }
+      //second random number matched to a symbol
       if(parseInt(key)===numberSecond){
-        console.log(value)
+        symbols[1]=value
       }
+      //third random number matched to a symbol
       if(parseInt(key)===numberThird){
-        console.log(value)
+        symbols[2]=value
       }
     }
+    
   }
    }
  
+ function win(symbols,winning_combinations){
+   for(items of winning_combinations){
+     for(let i=0;i<3; i++){
+       if(symbols[i]===items[i]){
+         return winning_combinations.indexOf(items)
+       }
+       else{
+         console.log('looser')
+       }
+
+       
+       
+     }
+   }
+ }
+
  
+
+
 function bet(){
 console.log('betted')
 }
