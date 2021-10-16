@@ -23,11 +23,34 @@
 
 
 /*------------------------ Cached Element References ------------------------*/
-
+const pay_btn = document.querySelector("#pay_btn")
+const bet_btn = document.querySelector("#bet_btn")
+const play_btn = document.querySelector("#play_btn")
+const withdrawBtn =document.querySelector("#withdraw_btn")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
-
-
+pay_btn.addEventListener("click",payChart)
+bet_btn.addEventListener("click",bet)
+play_btn.addEventListener("click",playGame)
+withdrawBtn.addEventListener("click",reset)
 /*-------------------------------- Functions --------------------------------*/
+init()
+
+function init(){
+}
+
+function payChart(){
+console.log('payChart')
+}
+
+function playGame(){
+console.log('played')
+}
+function bet(){
+console.log('betted')
+}
+
+function reset(){
+  console.log("withdraw")
+}
