@@ -46,11 +46,21 @@ console.log('payChart')
 
 function playGame(){
 console.log('played')
+let numberFirst=Math.floor(Math.random()*10)+1
+let numberSecond= Math.floor(Math.random()*10)+1
+let numberThird= Math.floor(Math.random()*10)+1
+
+console.log(numberFirst)
+console.log(numberSecond)
+console.log(numberThird)
+
 }
 function bet(){
 console.log('betted')
 }
-
+function render(){
+  
+}
 function reset(){
   console.log("withdraw")
 }
