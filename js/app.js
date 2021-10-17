@@ -21,6 +21,8 @@
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid, symbols
 let results =[ ]
+let credit_info_inner = 50
+let gameOver = true
 // key value pairs of numbers with symbols
 // const ref =[{9:'bar'},{8:"7"},{7:"7"},{6:
 // "bell"},{5:"bell"},{4:'bell'},{3:
@@ -48,6 +50,11 @@ const first_slot=document.querySelector("#slot-1")
 const second_slot=document.querySelector("#slot-2")
 const third_slot=document.querySelector("#slot-3")
 
+///display numbers
+const bet_info = document.querySelector("#bet-info")
+const credit_info = document.querySelector("#credit-info")
+const bet_step = document.querySelector("#bet-step")
+
 /*----------------------------- Event Listeners -----------------------------*/
 // pay_btn.addEventListener("click",payChart)
 // bet_btn.addEventListener("click",bet)
@@ -58,12 +65,21 @@ play_btn.addEventListener("click",playGame)
 init()
 
 function init(){
-   symbols =[null,null,null]
-  //  symbols =['bar','bar','bar']
-  //  symbols =['7','7','7']
-  //  symbols =['bell','bell','bell']
-  //  symbols =['grape','grape','grape']
- 
+  if(gameOver){
+    symbols =[null,null,null]
+    //  symbols =['bar','bar','bar']
+    //  symbols =['7','7','7']
+    //  symbols =['bell','bell','bell']
+    //  symbols =['grape','grape','grape']
+   
+
+
+
+  }
+  else{
+    console.log('deposit money!')
+  }
+
 
 }
 
@@ -104,10 +120,13 @@ function display(ref,numberFirst,numberSecond,numberThird){
         symbols[2]=value
         
       }    
+      
     }
+   
       // win(symbols,winning_combinations)
-      prize(symbols)
+      
   }
+  prize(symbols)
   // win(symbols,winning_combinations)
   console.log(symbols)
     // win(symbols,winning_combinations)
@@ -137,26 +156,50 @@ function display(ref,numberFirst,numberSecond,numberThird){
 // }
 
 
+///Assign winning values else assign a lost value
+
 function prize(symbol){
+  if(gameOver){
+    if(symbol[0]==="💠" && symbol[1]==="💠" && symbol[2]==="💠"){
+      credit_info_inner+=1000
+      credit_info.innerText =credit_info_inner
+      console.log('its a jackpot! 1000 added')
+    }
+    else if(symbol[0]==="7️⃣" && symbol[1]==="7️⃣'" && symbol[2]==="7️⃣"){
+      credit_info_inner+=400
+      credit_info.innerText =credit_info_inner
+      console.log('you hit big!400 added')
+    }
+    else if(symbol[0]==="🛎️" && symbol[1]==="🛎️" && symbol[2]==="🛎️"){
+      credit_info_inner+=100
+      credit_info.innerText =credit_info_inner
+      console.log('nice sping! 100 points added')
+    }
+    else if(symbol[0]==="🍇" && symbol[1]==="🍇" && symbol[2]==="🍇"){
+      credit_info_inner+=10
+      credit_info.innerText =credit_info_inner
+      console.log('10 points added!')
+    }
+    else{
+      if(credit_info_inner<=0){
+        gameOver=false
+        console.log("deposit some money!")
+      }
+      else{
+        credit_info_inner-=10
+        credit_info.innerText = credit_info_inner
+        console.log('10 points deducted')
+          }
 
-
-  if(symbol[0]==="💠" && symbol[1]==="💠" && symbol[2]==="💠"){
-    console.log('its a jackpot')
-  }
-  else if(symbol[0]==="7️⃣" && symbol[1]==="7️⃣'" && symbol[2]==="7️⃣"){
-    console.log('you hit big!')
-  }
-  else if(symbol[0]==="🛎️" && symbol[1]==="🛎️" && symbol[2]==="🛎️"){
-    console.log('nice sping! 10 points added')
-  }
-  else if(symbol[0]==="🍇" && symbol[1]==="🍇" && symbol[2]==="🍇"){
-    console.log('3 points added!')
-  }
-  else{
-    console.log('3 points deducted')
+      }
+      
+     
   }
 
+  
 }
+
+
 
 
   //  for(items of winning_combinations){
