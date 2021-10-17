@@ -71,10 +71,12 @@ init()
 function init(){
   if(!gameOver){
     symbols =[null,null,null]
+    
     //  symbols =['bar','bar','bar']
     //  symbols =['7','7','7']
     //  symbols =['bell','bell','bell']
     //  symbols =['grape','grape','grape']
+
    
 
 
@@ -162,26 +164,30 @@ function display(ref,numberFirst,numberSecond,numberThird){
 
 ///Assign winning values else assign a lost value
 
-function prize(symbol){
+function prize(symbols){
   if(!gameOver){
-    if(symbol[0]==="💠" && symbol[1]==="💠" && symbol[2]==="💠"){
+    if(symbols[0]==="💠" && symbols[1]==="💠" && symbols[2]==="💠"){
       credit_info_inner+=1000
+      setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
     }
-    else if(symbol[0]==="7️⃣" && symbol[1]==="7️⃣'" && symbol[2]==="7️⃣"){
+    else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣'" && symbols[2]==="7️⃣"){
       credit_info_inner+=400
-      credit_info.innerText =credit_info_inner
+      setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
+      
       console.log('you hit big!400 added')
     }
-    else if(symbol[0]==="🛎️" && symbol[1]==="🛎️" && symbol[2]==="🛎️"){
+    else if(symbols[0]==="🛎️" && symbols[1]==="🛎️" && symbols[2]==="🛎️"){
       credit_info_inner+=100
-      credit_info.innerText =credit_info_inner
+      setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
+      
       console.log('nice sping! 100 points added')
     }
-    else if(symbol[0]==="🍇" && symbol[1]==="🍇" && symbol[2]==="🍇"){
-      credit_info_inner+=10
-      credit_info.innerText =credit_info_inner
+    else if(symbols[0]==="🍇" && symbols[1]==="🍇" && symbols[2]==="🍇"){
+      credit_info_inner+=50
+      setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
+      
       console.log('10 points added!')
     }
     else{
@@ -189,9 +195,11 @@ function prize(symbol){
         gameOver=true
         console.log("deposit some money!")
       }
+
       else{
         credit_info_inner-=10
-        credit_info.innerText = credit_info_inner
+        setTimeout(()=>credit_info.innerText = credit_info_inner,3000)
+        
         console.log('10 points deducted')
           }
 
@@ -200,7 +208,30 @@ function prize(symbol){
      
   }
 
-  
+ displayImages(symbols)
+
+
+}
+
+// display emoji on the slot machine
+function displayImages(symbols){
+
+ setTimeout(function(){
+  return first_slot.innerText= symbols[0]
+ },1000)
+
+ setTimeout(function(){
+  return second_slot.innerText= symbols[1]
+ },2000)
+ setTimeout(function(){
+  return third_slot.innerText= symbols[2]
+ },3000)
+
+
+
+
+
+
 }
 
 
@@ -241,5 +272,6 @@ function render(){
 function reset(){
   console.log("withdraw")
   credit_info.innerText=0
+  gameOver=false
   
 }
