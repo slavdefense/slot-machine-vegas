@@ -15,7 +15,7 @@ margin:0 auto;
   justify-content:space-evenly;
   align-items: center;
   width:80%;
-  height:600px;
+  height:400px;
   
   
   
@@ -33,11 +33,25 @@ section div {
 
 .div-button{
   display:flex;
-  justify-content: space-around;
+  justify-content: ;
   margin-top:70px;
 
 }
 button{
   border:2px solid black;
   
+}
+.data-screen{
+  display:flex;
+  width:40%;
+  height:200px;
+  justify-content: space-evenly;
+  align-items: center;
+  border:2px solid red;
+
+}
+
+#bet-info,#credit-info,#bet-step{
+  width:100px;
+  height:50px;
 }
