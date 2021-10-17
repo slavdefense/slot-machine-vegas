@@ -21,8 +21,8 @@
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid, symbols
 let results =[ ]
-let credit_info_inner = 50
-let gameOver = true
+let credit_info_inner = 0
+let gameOver = false
 // key value pairs of numbers with symbols
 // const ref =[{9:'bar'},{8:"7"},{7:"7"},{6:
 // "bell"},{5:"bell"},{4:'bell'},{3:
@@ -54,6 +54,8 @@ const third_slot=document.querySelector("#slot-3")
 const bet_info = document.querySelector("#bet-info")
 const credit_info = document.querySelector("#credit-info")
 const bet_step = document.querySelector("#bet-step")
+//deposit slip
+const deposit = document.querySelector("#deposit")
 
 /*----------------------------- Event Listeners -----------------------------*/
 // pay_btn.addEventListener("click",payChart)
@@ -61,11 +63,13 @@ const bet_step = document.querySelector("#bet-step")
 play_btn.addEventListener("click",playGame)
 // withdrawBtn.addEventListener("click",reset)
 
+deposit.addEventListener("change",depositMoney)
+
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init(){
-  if(gameOver){
+  if(!gameOver){
     symbols =[null,null,null]
     //  symbols =['bar','bar','bar']
     //  symbols =['7','7','7']
@@ -159,7 +163,7 @@ function display(ref,numberFirst,numberSecond,numberThird){
 ///Assign winning values else assign a lost value
 
 function prize(symbol){
-  if(gameOver){
+  if(!gameOver){
     if(symbol[0]==="💠" && symbol[1]==="💠" && symbol[2]==="💠"){
       credit_info_inner+=1000
       credit_info.innerText =credit_info_inner
@@ -182,7 +186,7 @@ function prize(symbol){
     }
     else{
       if(credit_info_inner<=0){
-        gameOver=false
+        gameOver=true
         console.log("deposit some money!")
       }
       else{
@@ -200,7 +204,11 @@ function prize(symbol){
 }
 
 
-
+function depositMoney(evt){
+credit_info_inner=evt.target.value
+credit_info.innerText=parseInt(credit_info_inner)
+deposit.value=''
+}
 
   //  for(items of winning_combinations){
   //    for(let i=0;i<3; i++){
