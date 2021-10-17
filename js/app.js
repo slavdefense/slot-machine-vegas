@@ -19,18 +19,24 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let credits, coins_played, winner_paid
+let credits, coins_played, winner_paid, symbols
 let results =[ ]
 // key value pairs of numbers with symbols
-const ref =[{9:'bar'},{8:"7"},{7:"7"},{6:
-"bell"},{5:"bell"},{4:'bell'},{3:
-"grape"},{2:"grape"},{1:"grape"},{0:"grape"}]
+// const ref =[{9:'bar'},{8:"7"},{7:"7"},{6:
+// "bell"},{5:"bell"},{4:'bell'},{3:
+// "grape"},{2:"grape"},{1:"grape"},{0:"grape"}]
 
 
-// winning combinations
-const winning_combinations = [['bar','bar','bar'],['7','7','7'],['bell','bell','bell'],['grape','grape','grape']]
+// // winning combinations
+// const winning_combinations = [['bar','bar','bar'],['7','7','7'],['bell','bell','bell'],['grape','grape','grape']]
 
-const symbols =['bell','bell','bell']
+// key value pairs of numbers with symbols
+const ref =[{9:'💠'},{8:"7️⃣"},{7:"7️⃣"},{6:
+"🛎️"},{5:"🛎️"},{4:'🛎️'},{3:
+"🍇"},{2:"🍇"},{1:"🍇"},{0:"🍇"}]
+
+const winning_combinations = [['💠','💠','💠'],['7️⃣','7️⃣','7️⃣'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
+
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -43,15 +49,22 @@ const second_slot=document.querySelector("#slot-2")
 const third_slot=document.querySelector("#slot-3")
 
 /*----------------------------- Event Listeners -----------------------------*/
-pay_btn.addEventListener("click",payChart)
-bet_btn.addEventListener("click",bet)
+// pay_btn.addEventListener("click",payChart)
+// bet_btn.addEventListener("click",bet)
 play_btn.addEventListener("click",playGame)
-withdrawBtn.addEventListener("click",reset)
+// withdrawBtn.addEventListener("click",reset)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init(){
+   symbols =[null,null,null]
+  //  symbols =['bar','bar','bar']
+  //  symbols =['7','7','7']
+  //  symbols =['bell','bell','bell']
+  //  symbols =['grape','grape','grape']
+ 
+
 }
 
 function payChart(){
@@ -80,7 +93,7 @@ function display(ref,numberFirst,numberSecond,numberThird){
       // first random number matched to a symbol
       if(parseInt(key)===numberFirst){
         symbols[0]=value
-        console.log(symbols)
+        
       }
       //second random number matched to a symbol
       if(parseInt(key)===numberSecond){
@@ -89,28 +102,80 @@ function display(ref,numberFirst,numberSecond,numberThird){
       //third random number matched to a symbol
       if(parseInt(key)===numberThird){
         symbols[2]=value
-      }
+        
+      }    
     }
-    
+      // win(symbols,winning_combinations)
+      prize(symbols)
   }
+  // win(symbols,winning_combinations)
+  console.log(symbols)
+    // win(symbols,winning_combinations)
    }
+  //  const winning_combinations = [['bar','bar','bar'],['7','7','7'],['bell','bell','bell']]
+  // symbols =[null,null,null]
+
+
+  //
  
- function win(symbols,winning_combinations){
-   for(items of winning_combinations){
-     for(let i=0;i<3; i++){
-       if(symbols[i]===items[i]){
-         return winning_combinations.indexOf(items)
-       }
-       else{
-         console.log('looser')
-       }
+//  function win(symbols,winning_combinations){
 
-       
-       
-     }
-   }
- }
 
+//   if (winning_combinations.filter(arr => arr.toString() == symbols).length) {
+//     console.log('winner')
+
+//     } else {
+//     console.log('loser')
+//     }
+
+  
+//   // if(winning_combinations.find(symbols)){
+//   //   return true
+//   // }else{
+//   //   return false
+//   // }
+// }
+
+
+function prize(symbol){
+
+
+  if(symbol[0]==="💠" && symbol[1]==="💠" && symbol[2]==="💠"){
+    console.log('its a jackpot')
+  }
+  else if(symbol[0]==="7️⃣" && symbol[1]==="7️⃣'" && symbol[2]==="7️⃣"){
+    console.log('you hit big!')
+  }
+  else if(symbol[0]==="🛎️" && symbol[1]==="🛎️" && symbol[2]==="🛎️"){
+    console.log('nice sping! 10 points added')
+  }
+  else if(symbol[0]==="🍇" && symbol[1]==="🍇" && symbol[2]==="🍇"){
+    console.log('3 points added!')
+  }
+  else{
+    console.log('3 points deducted')
+  }
+
+}
+
+
+  //  for(items of winning_combinations){
+  //    for(let i=0;i<3; i++){
+
+  //      if(symbols[i]===items[i]){
+         
+  //        console.log()
+  //        return true
+  //       //  return winning_combinations.indexOf(items)
+  //      }
+  //     else{
+  //       console.log('lost')
+  //     }
+         
+  //      }
+      
+  //    }
+  //  }
  
 
 
