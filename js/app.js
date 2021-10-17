@@ -61,7 +61,7 @@ const deposit = document.querySelector("#deposit")
 // pay_btn.addEventListener("click",payChart)
 // bet_btn.addEventListener("click",bet)
 play_btn.addEventListener("click",playGame)
-// withdrawBtn.addEventListener("click",reset)
+withdrawBtn.addEventListener("click",reset)
 
 deposit.addEventListener("change",depositMoney)
 
@@ -240,4 +240,6 @@ function render(){
 }
 function reset(){
   console.log("withdraw")
+  credit_info.innerText=0
+  
 }
