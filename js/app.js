@@ -16,7 +16,7 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winning_soud = new Audio("../audio/winner.mp3")
 
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid, symbols
@@ -172,24 +172,29 @@ function prize(symbols){
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
+     winnerSound()
     }
     else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣'" && symbols[2]==="7️⃣"){
       credit_info_inner+=400
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('you hit big!400 added')
+      winnerSound()
     }
     else if(symbols[0]==="🛎️" && symbols[1]==="🛎️" && symbols[2]==="🛎️"){
       credit_info_inner+=100
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('nice sping! 100 points added')
+      winnerSound()
     }
     else if(symbols[0]==="🍇" && symbols[1]==="🍇" && symbols[2]==="🍇"){
       credit_info_inner+=50
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('10 points added!')
+      winnerSound()
+     
     }
     else{
       if(credit_info_inner<=0){
@@ -259,7 +264,7 @@ function spin(){
 function clearSymbols(){
   first_slot.innerHTML= "💠<br>🍇<br>7️⃣ <br>🔔"
   second_slot.innerHTML= "🍇<br>🔔<br>7️⃣<br>💠"
-  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>7️⃣>🔔"
+  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>7️⃣"
 }
 //deposit money to play game
 
@@ -284,4 +289,14 @@ function reset(){
   credit_info.innerText=0
   gameOver=false
   
+}
+
+
+function winnerSound(){
+
+
+  setTimeout(()=>winning_soud.play(),3000)
+        
+        
+          
 }
