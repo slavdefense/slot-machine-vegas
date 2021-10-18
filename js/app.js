@@ -39,16 +39,16 @@ const ref =[{9:'💠'},{8:"7️⃣"},{7:"7️⃣"},{6:
 
 const winning_combinations = [['💠','💠','💠'],['7️⃣','7️⃣','7️⃣'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
 
-
+const spinning_symbols = ['💠','7️⃣','🛎️','🍇',]
 
 /*------------------------ Cached Element References ------------------------*/
 const pay_btn = document.querySelector("#pay_btn")
 const bet_btn = document.querySelector("#bet_btn")
 const play_btn = document.querySelector("#play_btn")
 const withdrawBtn =document.querySelector("#withdraw_btn")
-const first_slot=document.querySelector("#slot-1")
-const second_slot=document.querySelector("#slot-2")
-const third_slot=document.querySelector("#slot-3")
+const first_slot=document.querySelector("#s1")
+const second_slot=document.querySelector("#s2")
+const third_slot=document.querySelector("#s3")
 
 ///display numbers
 const bet_info = document.querySelector("#bet-info")
@@ -167,7 +167,7 @@ function display(ref,numberFirst,numberSecond,numberThird){
 function prize(symbols){
   if(!gameOver){
     if(symbols[0]==="💠" && symbols[1]==="💠" && symbols[2]==="💠"){
-      credit_info_inner+=1000
+      credit_info_inner+=100000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
@@ -175,19 +175,19 @@ function prize(symbols){
     else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣'" && symbols[2]==="7️⃣"){
       credit_info_inner+=400
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      
+      credit_info.innerText =credit_info_inner
       console.log('you hit big!400 added')
     }
     else if(symbols[0]==="🛎️" && symbols[1]==="🛎️" && symbols[2]==="🛎️"){
       credit_info_inner+=100
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      
+      credit_info.innerText =credit_info_inner
       console.log('nice sping! 100 points added')
     }
     else if(symbols[0]==="🍇" && symbols[1]==="🍇" && symbols[2]==="🍇"){
       credit_info_inner+=50
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      
+      credit_info.innerText =credit_info_inner
       console.log('10 points added!')
     }
     else{
@@ -199,7 +199,7 @@ function prize(symbols){
       else{
         credit_info_inner-=10
         setTimeout(()=>credit_info.innerText = credit_info_inner,3000)
-        
+        credit_info.innerText =credit_info_inner
         console.log('10 points deducted')
           }
 
@@ -217,7 +217,15 @@ function prize(symbols){
 function displayImages(symbols){
 
  setTimeout(function(){
+
+ 
+
+
+
+
   return first_slot.innerText= symbols[0]
+
+
  },1000)
 
  setTimeout(function(){
@@ -230,6 +238,16 @@ function displayImages(symbols){
 
 
 
+
+
+}
+
+function spin(){
+  for(i=0;i<spinning_symbols.length;i++){
+    first_slot.innerText=spinning_symbols[i]
+    second_slot.innerText=spinning_symbols[i]
+    third_slot.innerText=spinning_symbols[i]
+  }
 
 
 }
