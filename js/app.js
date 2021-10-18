@@ -218,26 +218,22 @@ function displayImages(symbols){
 
  setTimeout(function(){
 
- 
-
-
-
-
+  first_slot.classList.remove("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
   return first_slot.innerText= symbols[0]
 
 
  },1000)
 
  setTimeout(function(){
+  second_slot.classList.remove("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
   return second_slot.innerText= symbols[1]
  },2000)
  setTimeout(function(){
+
+  third_slot.classList.remove("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
+  third_slot.style.setProperty("--animate-duration", "0.2s")
   return third_slot.innerText= symbols[2]
  },3000)
-
-
-
-
 
 
 }
@@ -246,13 +242,13 @@ function spin(){
 
 
   first_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
-    first_slot.style.setProperty("--animate-duration", "0.5s")
+    first_slot.style.setProperty("--animate-duration", "0.2s")
 
   second_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
-  second_slot.style.setProperty("--animate-duration", "0.5s")
+  second_slot.style.setProperty("--animate-duration", "0.2s")
 
   third_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
-    third_slot.style.setProperty("--animate-duration", "0.5s")
+    third_slot.style.setProperty("--animate-duration", "0.2s")
 
 
 }
