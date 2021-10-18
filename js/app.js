@@ -51,7 +51,7 @@ const second_slot=document.querySelector("#s2")
 const third_slot=document.querySelector("#s3")
 
 ///display numbers
-const bet_info = document.querySelector("#bet-info")
+const win_amount = document.querySelector("#win-amount")
 const credit_info = document.querySelector("#credit-info")
 const bet_step = document.querySelector("#bet-step")
 //deposit slip
@@ -94,6 +94,7 @@ console.log('payChart')
 }
 
 function playGame(){
+  win_amount.innerText=""
   clearSymbols()
   spinning_sound.play()
 
@@ -173,6 +174,7 @@ function prize(symbols){
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
+      winAmount(100000)
      winnerSound()
     }
     else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣" && symbols[2]==="7️⃣"){
@@ -180,27 +182,36 @@ function prize(symbols){
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('you hit big!400 added')
+      win_amount.innerText="$10000"
+      winAmount(10000)
       winnerSound()
+
     }
     else if(symbols[0]==="🛎️" && symbols[1]==="🛎️" && symbols[2]==="🛎️"){
       credit_info_inner+=100
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('nice sping! 100 points added')
+      win_amount.innerText="$100"
+      winAmount(100)
       winnerSound()
     }
     else if(symbols[0]==="🍇" && symbols[1]==="🍇" && symbols[2]==="🍇"){
       credit_info_inner+=50
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
-      console.log('10 points added!')
+      console.log('50 points added!')
+      win_amount.innerText="$50"
+      winAmount(50)
       winnerSound()
      
     }
     else{
       if(credit_info_inner<=0){
         gameOver=true
+       win_amount.innerText="Deposit money!"
         console.log("deposit some money!")
+        
       }
 
       else{
@@ -208,6 +219,7 @@ function prize(symbols){
         setTimeout(()=>credit_info.innerText = credit_info_inner,3000)
         credit_info.innerText =credit_info_inner
         console.log('10 points deducted')
+        lostAmount(10)
           }
 
       }
@@ -215,7 +227,7 @@ function prize(symbols){
      
   }
 spin()
- displayImages(symbols)
+displayImages(symbols)
 
 
 }
@@ -288,10 +300,29 @@ function render(){
 function reset(){
   console.log("withdraw")
   credit_info.innerText=0
+  credit_info_inner=0
   gameOver=false
   
 }
+function lostAmount(amount){
+setTimeout(function(){
+  if(credit_info_inner>0){
 
+    win_amount.innerText= `$${amount} lost`
+
+  } else{
+    win_amount.innerText="Out of balance!"
+  }
+  
+},3000)
+
+}
+
+function winAmount(amount){
+  setTimeout(function(){
+    win_amount.innerText=`$${amount} won!`
+  },3000)
+}
 
 function winnerSound(){
 
