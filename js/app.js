@@ -207,7 +207,7 @@ function prize(symbols){
       
      
   }
-
+spin()
  displayImages(symbols)
 
 
@@ -243,11 +243,16 @@ function displayImages(symbols){
 }
 
 function spin(){
-  for(i=0;i<spinning_symbols.length;i++){
-    first_slot.innerText=spinning_symbols[i]
-    second_slot.innerText=spinning_symbols[i]
-    third_slot.innerText=spinning_symbols[i]
-  }
+
+
+  first_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
+    first_slot.style.setProperty("--animate-duration", "0.5s")
+
+  second_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
+  second_slot.style.setProperty("--animate-duration", "0.5s")
+
+  third_slot.classList.add("animate__animated", "animate__slideOutDown","animate__faster","animate__infinite","infinite")
+    third_slot.style.setProperty("--animate-duration", "0.5s")
 
 
 }
