@@ -94,6 +94,7 @@ console.log('payChart')
 }
 
 function playGame(){
+  clearSymbols()
 
 let numberFirst = Math.floor(Math.random()*10)
 let numberSecond = Math.floor(Math.random()*10)
@@ -214,6 +215,7 @@ spin()
 }
 
 // display emoji on the slot machine
+
 function displayImages(symbols){
 
  setTimeout(function(){
@@ -238,6 +240,8 @@ function displayImages(symbols){
 
 }
 
+//spin the images when game starts
+
 function spin(){
 
 
@@ -252,7 +256,12 @@ function spin(){
 
 
 }
-
+function clearSymbols(){
+  first_slot.innerHTML= "💠<br>🍇<br>7️⃣ <br>🔔"
+  second_slot.innerHTML= "🍇<br>🔔<br>7️⃣<br>💠"
+  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>7️⃣>🔔"
+}
+//deposit money to play game
 
 function depositMoney(evt){
 credit_info_inner=evt.target.value
@@ -260,24 +269,6 @@ credit_info.innerText=parseInt(credit_info_inner)
 deposit.value=''
 }
 
-  //  for(items of winning_combinations){
-  //    for(let i=0;i<3; i++){
-
-  //      if(symbols[i]===items[i]){
-         
-  //        console.log()
-  //        return true
-  //       //  return winning_combinations.indexOf(items)
-  //      }
-  //     else{
-  //       console.log('lost')
-  //     }
-         
-  //      }
-      
-  //    }
-  //  }
- 
 
 
 function bet(){
