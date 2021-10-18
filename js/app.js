@@ -17,7 +17,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winning_soud = new Audio("../audio/winner.mp3")
-
+const spinning_sound = new Audio("../audio/spinning.mp3")
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid, symbols
 let results =[ ]
@@ -95,6 +95,7 @@ console.log('payChart')
 
 function playGame(){
   clearSymbols()
+  spinning_sound.play()
 
 let numberFirst = Math.floor(Math.random()*10)
 let numberSecond = Math.floor(Math.random()*10)
@@ -174,8 +175,8 @@ function prize(symbols){
       console.log('its a jackpot! 1000 added')
      winnerSound()
     }
-    else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣'" && symbols[2]==="7️⃣"){
-      credit_info_inner+=400
+    else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣" && symbols[2]==="7️⃣"){
+      credit_info_inner+=10000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
       console.log('you hit big!400 added')
