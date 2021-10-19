@@ -33,17 +33,17 @@ let gameOver = false
 // const winning_combinations = [['bar','bar','bar'],['7','7','7'],['bell','bell','bell'],['grape','grape','grape']]
 
 // key value pairs of numbers with symbols
-const ref =[{9:'💠'},{8:"7️⃣"},{7:"7️⃣"},{6:
+const ref =[{9:'💠'},{8:"💖"},{7:"💖"},{6:
 "🛎️"},{5:"🛎️"},{4:'🛎️'},{3:
 "🍇"},{2:"🍇"},{1:"🍇"},{0:"🍇"}]
 
-const winning_combinations = [['💠','💠','💠'],['7️⃣','7️⃣','7️⃣'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
+const winning_combinations = [['💠','💠','💠'],['💖','💖','💖'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
 
-const spinning_symbols = ['💠','7️⃣','🛎️','🍇',]
+const spinning_symbols = ['💠','💖','🛎️','🍇',]
 
 /*------------------------ Cached Element References ------------------------*/
 const pay_btn = document.querySelector("#pay_btn")
-const bet_btn = document.querySelector("#bet_btn")
+
 const play_btn = document.querySelector("#play_btn")
 const withdrawBtn =document.querySelector("#withdraw_btn")
 const first_slot=document.querySelector("#s1")
@@ -58,7 +58,7 @@ const bet_step = document.querySelector("#bet-step")
 const deposit = document.querySelector("#deposit")
 
 /*----------------------------- Event Listeners -----------------------------*/
-// pay_btn.addEventListener("click",payChart)
+
 // bet_btn.addEventListener("click",bet)
 play_btn.addEventListener("click",playGame)
 withdrawBtn.addEventListener("click",reset)
@@ -177,7 +177,7 @@ function prize(symbols){
       winAmount(100000)
      winnerSound()
     }
-    else if(symbols[0]==="7️⃣" && symbols[1]==="7️⃣" && symbols[2]==="7️⃣"){
+    else if(symbols[0]==="💖" && symbols[1]==="💖" && symbols[2]==="💖"){
       credit_info_inner+=10000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
       credit_info.innerText =credit_info_inner
@@ -275,9 +275,9 @@ function spin(){
 
 }
 function clearSymbols(){
-  first_slot.innerHTML= "💠<br>🍇<br>7️⃣ <br>🔔"
-  second_slot.innerHTML= "🍇<br>🔔<br>7️⃣<br>💠"
-  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>7️⃣"
+  first_slot.innerHTML= "💠<br>🍇<br>💖<br>🔔"
+  second_slot.innerHTML= "🍇<br>🔔<br>💖<br>💠"
+  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>💖"
 }
 //deposit money to play game
 
@@ -308,7 +308,7 @@ function lostAmount(amount){
 setTimeout(function(){
   if(credit_info_inner>0){
 
-    win_amount.innerText= `$${amount} lost`
+    win_amount.innerText= `✨✨✨✨✨✨✨✨✨$${amount} lost✨✨✨✨✨✨✨✨✨✨`
 
   } else{
     win_amount.innerText="Out of balance!"
@@ -320,7 +320,7 @@ setTimeout(function(){
 
 function winAmount(amount){
   setTimeout(function(){
-    win_amount.innerText=`$${amount} won!`
+    win_amount.innerText=`✨✨✨✨✨✨✨✨$${amount} won!✨✨✨✨✨✨✨✨✨`
   },3000)
 }
 
