@@ -25,7 +25,7 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(235,253,29,1) 50%
 section div {
   width:20%;
   height:200px;
-  border:2px solid black;
+  border:5px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@ button{
   border:2px solid black;
   
   border-radius: 10px;
-  font-weight: 800;
+  font-weight: 800px;
   font-size: larger;
   font-family: 'Roboto Mono', monospace;
 }
@@ -56,6 +56,7 @@ button{
 
 #deposit{
   background-color:orange ;
+  font-size:large;
 }
 .data-screen{
   display:flex;
@@ -101,7 +102,7 @@ span{
 
 #win-amount{
   width:80%;
-  height:20px;
+  height:30px;
   margin-bottom: -200px;
   margin-top:-200px;
   position:relative;
@@ -109,11 +110,12 @@ span{
   color: rgb(211, 203, 203);
   font-family: 'Roboto Mono', monospace;
   font-weight:1200px;
+  font-size: 20px;
   
 }
 
 
-button:hover{
+#win-amount,#deposit,.container,button:hover{
   border-color:#f1ff5c;
   color:darkmagenta;
   box-shadow: 0 0.9em 0.5em -0.4em #3E9C62;
@@ -139,6 +141,34 @@ button:hover{
 
 
 
-@media screen and (max-width:740px {
+@media screen and (max-width:740px) {
+
+  #win-amount{
+    font-size: 13px;
+  }
   
+}
+
+@media screen and (max-width:600px) {
+
+  #win-amount{
+    font-size: 8px;
+    line-height: 20px;
+  }
+  
+  button{
+    font-size:10px;
+    padding:0
+  }
+  
+  #deposit{
+    width: 40px;
+  }
+  section div{
+    height:100px
+  }
+
+  
+  
+
 }

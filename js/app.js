@@ -15,9 +15,10 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-
+const entrance_sound = new Audio("../audio/sepultura.mp3")
 const winning_soud = new Audio("../audio/winner.mp3")
 const spinning_sound = new Audio("../audio/spinning.mp3")
+const jackpot_sound = new Audio("../audio/aceofspadesmotor.mp3")
 /*---------------------------- Variables (state) ----------------------------*/
 let credits, coins_played, winner_paid, symbols
 let results =[ ]
@@ -25,13 +26,13 @@ let credit_info_inner = 0
 let gameOver = false
 
 // key value pairs of numbers with symbols
-const ref =[{9:'💠'},{8:"💖"},{7:"💖"},{6:
+const ref =[{9:'♠️'},{8:"💖"},{7:"💖"},{6:
 "🛎️"},{5:"🛎️"},{4:'🛎️'},{3:
 "🍇"},{2:"🍇"},{1:"🍇"},{0:"🍇"}]
 
-const winning_combinations = [['💠','💠','💠'],['💖','💖','💖'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
+const winning_combinations = [['♠️','♠️','♠️'],['💖','💖','💖'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
 
-const spinning_symbols = ['💠','💖','🛎️','🍇',]
+const spinning_symbols = ['♠️','💖','🛎️','🍇',]
 
 /*------------------------ Cached Element References ------------------------*/
 const pay_btn = document.querySelector("#pay_btn")
@@ -68,6 +69,7 @@ function init(){
   else{
     console.log('deposit money!')
   }
+  
 }
 
 function payChart(){
@@ -75,6 +77,7 @@ console.log('payChart')
 }
 
 function playGame(){
+
   win_amount.innerText=""
   clearSymbols()
   spinning_sound.play()
@@ -82,6 +85,11 @@ function playGame(){
     let numberFirst = Math.floor(Math.random()*10)
     let numberSecond = Math.floor(Math.random()*10)
     let numberThird = Math.floor(Math.random()*10)
+
+
+    // let numberFirst = 9
+    // let numberSecond = 9
+    // let numberThird = 9
 
 //call arr function
       display(ref,numberFirst,numberSecond,numberThird)
@@ -123,9 +131,10 @@ function display(ref,numberFirst,numberSecond,numberThird){
 
 function prize(symbols){
   if(!gameOver){
-    if(symbols[0]==="💠" && symbols[1]==="💠" && symbols[2]==="💠"){
+    if(symbols[0]==="♠️" && symbols[1]==="♠️" && symbols[2]==="♠️"){
       credit_info_inner+=100000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
+      jackpot_sound.play()
       // credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
       winAmount(100000)
@@ -221,9 +230,9 @@ function spin(){
     third_slot.style.setProperty("--animate-duration", "0.2s")
 }
 function clearSymbols(){
-  first_slot.innerHTML= "💠<br>🍇<br>💖<br>🔔"
-  second_slot.innerHTML= "🍇<br>🔔<br>💖<br>💠"
-  third_slot.innerHTML= "🔔<br>🍇<br>💠<br>💖"
+  first_slot.innerHTML= "♠️<br>🍇<br>💖<br>🔔"
+  second_slot.innerHTML= "🍇<br>🔔<br>💖<br>♠️"
+  third_slot.innerHTML= "🔔<br>🍇<br>♠️<br>💖"
 }
 //deposit money to play game
 
@@ -231,6 +240,10 @@ function depositMoney(evt){
 credit_info_inner=parseInt(evt.target.value)
 credit_info.innerText=parseInt(credit_info_inner)
 deposit.value=''
+if(credit_info_inner>=1000){
+  entrance_sound.play()
+}
+
 }
 
 
@@ -247,7 +260,9 @@ function reset(){
   console.log("withdraw")
   credit_info.innerText=0
   credit_info_inner=0
+  clearSymbols()
   gameOver=false
+
   
 }
 function lostAmount(amount){
