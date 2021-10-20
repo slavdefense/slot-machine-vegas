@@ -126,7 +126,7 @@ function prize(symbols){
     if(symbols[0]==="💠" && symbols[1]==="💠" && symbols[2]==="💠"){
       credit_info_inner+=100000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      credit_info.innerText =credit_info_inner
+      // credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
       winAmount(100000)
      winnerSound()
@@ -134,7 +134,7 @@ function prize(symbols){
     else if(symbols[0]==="💖" && symbols[1]==="💖" && symbols[2]==="💖"){
       credit_info_inner+=10000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      credit_info.innerText =credit_info_inner
+      // credit_info.innerText =credit_info_inner
       console.log('you hit big!400 added')
       win_amount.innerText="$10000"
       winAmount(10000)
@@ -144,7 +144,7 @@ function prize(symbols){
     else if(symbols[0]==="🛎️" && symbols[1]==="🛎️" && symbols[2]==="🛎️"){
       credit_info_inner+=100
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      credit_info.innerText =credit_info_inner
+      // credit_info.innerText =credit_info_inner
       console.log('nice sping! 100 points added')
       win_amount.innerText="$100"
       winAmount(100)
@@ -153,7 +153,7 @@ function prize(symbols){
     else if(symbols[0]==="🍇" && symbols[1]==="🍇" && symbols[2]==="🍇"){
       credit_info_inner+=50
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      credit_info.innerText =credit_info_inner
+      // credit_info.innerText =credit_info_inner
       console.log('50 points added!')
       win_amount.innerText="$50"
       winAmount(50)
@@ -171,7 +171,7 @@ function prize(symbols){
       else{
         credit_info_inner-=10
         setTimeout(()=>credit_info.innerText = credit_info_inner,3000)
-        credit_info.innerText =credit_info_inner
+        // credit_info.innerText =credit_info_inner
         console.log('10 points deducted')
         lostAmount(10)
           }
@@ -228,7 +228,7 @@ function clearSymbols(){
 //deposit money to play game
 
 function depositMoney(evt){
-credit_info_inner=evt.target.value
+credit_info_inner=parseInt(evt.target.value)
 credit_info.innerText=parseInt(credit_info_inner)
 deposit.value=''
 }
