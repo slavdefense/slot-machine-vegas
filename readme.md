@@ -27,15 +27,20 @@ In the initial planning phase, the design looks like this.
 
 ![Getting Started](/img/rock-the-slot.png)
 
+<p>PayOut Chart</p>
+
+![Getting Started](/img/payout-chart.png)
+
 <p>Jackpot draw </p>
 
 ![Getting Started](/img/Jackpot.png)
 
-List of technologies
-<p>HTML</p>
-<p>Css</p>
-<p>Javascript</p>
-<p>Animate.css</p>
+<h3>List of technologies</h3>
+<li> HTML</li>
+<li>Css </li>
+<li>Javascript </li>
+<li>Animate.css</li>
+
 
 
 
