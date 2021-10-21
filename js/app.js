@@ -24,6 +24,7 @@ let credits, coins_played, winner_paid, symbols
 let results =[ ]
 let credit_info_inner = 0
 let gameOver = false
+let sound =true
 
 // key value pairs of numbers with symbols
 const ref =[{9:'♠️'},{8:"💖"},{7:"💖"},{6:
@@ -42,6 +43,7 @@ const withdrawBtn =document.querySelector("#withdraw_btn")
 const first_slot=document.querySelector("#s1")
 const second_slot=document.querySelector("#s2")
 const third_slot=document.querySelector("#s3")
+const music = document.querySelector("#music")
 
 ///display numbers
 const win_amount = document.querySelector("#win-amount")
@@ -59,6 +61,7 @@ withdrawBtn.addEventListener("click",reset)
 
 deposit.addEventListener("change",depositMoney)
 pay_btn.addEventListener("click",payChartInfo)
+music.addEventListener("click",turnoffSound)
 /*-------------------------------- Functions --------------------------------*/
 init()
 
@@ -81,7 +84,11 @@ function playGame(){
 
   win_amount.innerText=""
   clearSymbols()
-  spinning_sound.play()
+
+  if(sound){
+    spinning_sound.play()
+  }
+  
 
     let numberFirst = Math.floor(Math.random()*10)
     let numberSecond = Math.floor(Math.random()*10)
@@ -243,8 +250,11 @@ credit_info_inner=parseInt(evt.target.value)
 credit_info.innerText=parseInt(credit_info_inner)
 deposit.value=''
 if(credit_info_inner>=1000){
-  
+  if(sound===true){
     entrance_sound.play()
+  }
+  
+    
   
   
   
@@ -310,4 +320,16 @@ function payChartInfo(){
 
   }
 
+}
+function turnoffSound(){
+
+  if(sound===true){
+    sound=false
+    music.style.backgroundColor="red"
+  }
+  else{
+    sound=true
+    music.style.backgroundColor="green"
+  }
+ 
 }
