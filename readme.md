@@ -8,7 +8,7 @@
 A player can withdraw the game anytime by pressing the withdraw button. There is no money involved in this game and will never be. This is a project I completed to depict my understanding of Javascript control flow with sequence, brancing and looping.  
 
 <h3>Getting Started </h3>
-  Click <a href="https://spotless-addition.surge.sh.sh">here </a> to load the game
+  Click <a href="https://spotless-addition.surge.sh">here </a> to load the game
 link 
 <h3>Wireframe</h3>
 In the initial planning phase, the design looks like this.
