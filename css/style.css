@@ -36,6 +36,32 @@ section div {
   background:black;
 }
 
+.paychart{
+  
+  z-index: 1;
+  background-image: url("../img/payout-chart.png");
+  width:270px;
+  height:200px;
+  background-size: cover;
+  margin-top: -310px;
+  left:260px;
+  border: 2px dotted yellow;
+  display:block;
+  justify-content: center;
+  align-items: center;
+  padding:20px;
+  position:absolute;
+  border-radius: 5px;
+ 
+  
+  
+
+
+}
+
+
+
+
 button{
   border:2px solid black;
   

@@ -13,7 +13,7 @@ A player can withdraw the game anytime by pressing the withdraw button.
 <h3>Wireframe</h3>
 In the initial planning phase, the design looks like this.
 
-![Getting Started](/img/slot-wireframe-window.png)
+![Getting Started](/img/wireframe-slot.png)
 
 
 
@@ -40,12 +40,15 @@ In the initial planning phase, the design looks like this.
 <li>Css </li>
 <li>Javascript </li>
 <li>Animate.css</li>
+<li> Whimsical ireframes</li>
 
 
 
 
 <h3>Future Deployments</h3>
-Fetch random jokes from a joke database and display messages when winner is loosing to cheer him/her up
+
+<li>Create a graph that depicts player's past draws with winning/loosing percentage</li>
+<li>Fetch random jokes from a joke database and display messages when winner is loosing to cheer him/her up</li>
 
 
 

@@ -49,6 +49,7 @@ const credit_info = document.querySelector("#credit-info")
 const bet_step = document.querySelector("#bet-step")
 //deposit slip
 const deposit = document.querySelector("#deposit")
+const pay_chart = document.querySelector(".paychart")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -57,7 +58,7 @@ play_btn.addEventListener("click",playGame)
 withdrawBtn.addEventListener("click",reset)
 
 deposit.addEventListener("change",depositMoney)
-
+pay_btn.addEventListener("click",payChartInfo)
 /*-------------------------------- Functions --------------------------------*/
 init()
 
@@ -297,4 +298,16 @@ function winnerSound(){
         
         
           
+}
+
+function payChartInfo(){
+  
+  if(pay_chart.style.display==="block"){
+    pay_chart.style.display="none"
+  }
+  else{
+    pay_chart.style.display="block"
+
+  }
+
 }
