@@ -134,7 +134,8 @@ function prize(symbols){
     if(symbols[0]==="♠️" && symbols[1]==="♠️" && symbols[2]==="♠️"){
       credit_info_inner+=100000
       setTimeout(()=>credit_info.innerText =credit_info_inner,3000)
-      jackpot_sound.play()
+      setTimeout(()=>jackpot_sound.play() =credit_info_inner,3000)
+      // jackpot_sound.play()
       // credit_info.innerText =credit_info_inner
       console.log('its a jackpot! 1000 added')
       winAmount(100000)
@@ -241,7 +242,11 @@ credit_info_inner=parseInt(evt.target.value)
 credit_info.innerText=parseInt(credit_info_inner)
 deposit.value=''
 if(credit_info_inner>=1000){
-  entrance_sound.play()
+  
+    entrance_sound.play()
+  
+  
+  
 }
 
 }
