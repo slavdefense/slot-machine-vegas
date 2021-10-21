@@ -33,8 +33,8 @@ let sound =true
 const ref =[{9:'♠️'},{8:"💖"},{7:"💖"},{6:
 "🛎️"},{5:"🛎️"},{4:'🛎️'},{3:
 "🍇"},{2:"🍇"},{1:"🍇"},{0:"🍇"}]
-//Define winning combination for the game
 
+//Define winning combination for the game
 const winning_combinations = [['♠️','♠️','♠️'],['💖','💖','💖'],['🛎️','🛎️','🛎️'],['🍇','🍇','🍇']]
 
 //an array of symbols that spins each directly connected with the generated random numbers
@@ -54,6 +54,7 @@ const music = document.querySelector("#music")
 const win_amount = document.querySelector("#win-amount")
 const credit_info = document.querySelector("#credit-info")
 const bet_step = document.querySelector("#bet-step")
+
 //deposit slip
 const deposit = document.querySelector("#deposit")
 const pay_chart = document.querySelector(".paychart")
@@ -67,23 +68,24 @@ deposit.addEventListener("change",depositMoney)
 pay_btn.addEventListener("click",payChartInfo)
 music.addEventListener("click",turnoffSound)
 /*-------------------------------- Functions --------------------------------*/
+
 //initializing init function 
 init()
 
 function init(){
+  if(credit_info_inner>0){
+    gameOver=false
+  }
   if(!gameOver){
     symbols =[null,null,null]
-
   }
   else{
     console.log('deposit money!')
-  }
-  
+  }  
 }
 
 // this function gets called when the player clicks play button
 function playGame(){
-
   win_amount.innerText=""
   clearSymbols()
 
@@ -100,10 +102,9 @@ function playGame(){
 
 //call arr function
       display(ref,numberFirst,numberSecond,numberThird)
-
-
 }
 //Match the random numbers with an emoji to display in the slot machine
+
 function display(ref,numberFirst,numberSecond,numberThird){
   
   for(item of ref){
@@ -119,21 +120,21 @@ function display(ref,numberFirst,numberSecond,numberThird){
       //third random number matched to a symbol
       if(parseInt(key)===numberThird){
         symbols[2]=value    
-      }    
-      
-    }
-   
-      
-      
+      }        
+    }    
   }
   prize(symbols)
-  
   
    }
 
 ///function prize() pulls the symbols array and checks any winning condition is met. 
 
 function prize(symbols){
+
+if(credit_info_inner>0){
+  gameOver=false
+}
+
   if(!gameOver){
     if(symbols[0]==="♠️" && symbols[1]==="♠️" && symbols[2]==="♠️"){
       credit_info_inner+=100000
@@ -171,23 +172,18 @@ function prize(symbols){
         gameOver=true
        win_amount.innerText="Deposit money!"
        no_money.play()
-        
-        
+             
       }
-
       else{
         credit_info_inner-=10
         setTimeout(()=>credit_info.innerText = credit_info_inner,3000)
         console.log('10 points deducted')
         lostAmount(10)
           }
-
-      }      
-     
+      }          
   }
 spin()
 displayImages(symbols)
-
 
 }
 
@@ -211,7 +207,6 @@ function displayImages(symbols){
   return third_slot.innerText= symbols[2]
  },3000)
 
-
 }
 
 //spin the images when game starts
@@ -231,8 +226,8 @@ function clearSymbols(){
   second_slot.innerHTML= "🍇<br>🔔<br>💖<br>♠️"
   third_slot.innerHTML= "🔔<br>🍇<br>♠️<br>💖"
 }
-//deposit money to play game
 
+//deposit money to play game
 function depositMoney(evt){
 credit_info_inner=parseInt(evt.target.value)
 credit_info.innerText=parseInt(credit_info_inner)
@@ -240,10 +235,8 @@ deposit.value=''
 if(credit_info_inner>=1000){
   if(sound===true){
     entrance_sound.play()
-  }
-    
+  }    
 }
-
 }
 
 // This function is called when players press withdraw. Credit goes back to the user and all displayed data clears
@@ -253,14 +246,14 @@ function reset(){
   credit_info_inner=0
   clearSymbols()
   withdraw.play()
-  gameOver=false
+  gameOver=true
  
 }
+
 //Lost amount displays the amount lost during each spin. There is a delay of 3 seconds in displaying the amount lost
 function lostAmount(amount){
 setTimeout(function(){
   if(credit_info_inner>0){
-
     win_amount.innerText= `✨✨✨✨✨✨✨✨✨$${amount} lost✨✨✨✨✨✨✨✨✨✨`
 
   } else{
@@ -279,10 +272,10 @@ function winAmount(amount){
 }
 //Enable music when players wins
 function winnerSound(){
-
   setTimeout(()=>winning_soud.play(),3000)
                  
 }
+
 // Show the rules of the game ie. the winning combination with a click of paychart button. This is a toggle button. Hide or show the Pay chart.
 function payChartInfo(){
   
@@ -291,13 +284,11 @@ function payChartInfo(){
   }
   else{
     pay_chart.style.display="block"
-
   }
-
 }
+
 //Turn sound off/on with click on music button
 function turnoffSound(){
-
   if(sound===true){
     sound=false
     music.style.backgroundColor="red"
