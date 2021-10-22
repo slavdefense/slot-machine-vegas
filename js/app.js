@@ -1,8 +1,6 @@
 // Create  3 random numbers from 0 to 10 
 // Define our click handler to a play button, messages, bet amount,remaining credit, pay chart etc.
 // Allow players add credit card info and display the amount added. 
-// Create 3 combination of bet increasement.
-// Create all credit to be bet.
 //Define a time interval of 1 second for the first number, 2 second for the second number and 3 seconds for the third number
 //Attact svg images to each number 
 //Display  svg images instead of the corresponding numbers
@@ -92,13 +90,13 @@ function playGame(){
   if(sound){
     spinning_sound.play()
   }
-     let numberFirst = Math.floor(Math.random()*10)
-     let numberSecond = Math.floor(Math.random()*10)
-     let numberThird = Math.floor(Math.random()*10)
-// test for jackpot winning draw
-    // let numberFirst = 9
-    // let numberSecond = 9
-    // let numberThird = 9
+    //  let numberFirst = Math.floor(Math.random()*10)
+    //  let numberSecond = Math.floor(Math.random()*10)
+    //  let numberThird = Math.floor(Math.random()*10)
+
+    let numberFirst = 9
+    let numberSecond = 9
+    let numberThird = 9
 
 //call arr function
       display(ref,numberFirst,numberSecond,numberThird)
