@@ -90,13 +90,9 @@ function playGame(){
   if(sound){
     spinning_sound.play()
   }
-    //  let numberFirst = Math.floor(Math.random()*10)
-    //  let numberSecond = Math.floor(Math.random()*10)
-    //  let numberThird = Math.floor(Math.random()*10)
-
-    let numberFirst = 9
-    let numberSecond = 9
-    let numberThird = 9
+     let numberFirst = Math.floor(Math.random()*10)
+     let numberSecond = Math.floor(Math.random()*10)
+     let numberThird = Math.floor(Math.random()*10)
 
 //call arr function
       display(ref,numberFirst,numberSecond,numberThird)
