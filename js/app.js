@@ -248,7 +248,7 @@ function reset(){
 function lostAmount(amount){
 setTimeout(function(){
   if(credit_info_inner>0){
-    win_amount.innerText= `✨✨✨✨✨✨✨✨✨$${amount} lost✨✨✨✨✨✨✨✨✨✨`
+    win_amount.innerText= `✨✨✨✨✨$${amount} lost✨✨✨✨✨`
 
   } else{
     win_amount.innerText="Out of balance!"
@@ -261,7 +261,7 @@ setTimeout(function(){
 //Display the win amount on the machine
 function winAmount(amount){
   setTimeout(function(){
-    win_amount.innerText=`✨✨✨✨✨✨✨✨$${amount} won!✨✨✨✨✨✨✨✨✨`
+    win_amount.innerText=`✨✨✨✨$${amount} won!✨✨✨✨`
   },3000)
 }
 //Enable music when players wins
