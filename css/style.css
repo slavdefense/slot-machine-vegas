@@ -39,7 +39,7 @@ background-size: cover;
   align-items: center;
   flex-wrap: wrap;
   width:800px;
-  height:750px;
+  height:770px;
   border-radius: 78px/190px 190px  190px 190px;
   border: 10px goldenrod double;
   /* background: rgb(131,58,180);
@@ -72,7 +72,7 @@ background-size: cover;
   left:260px; */
   margin-left: -63em;
   border: 2px dotted yellow;
-  display:block;
+  display:none;
   justify-content: center;
   align-items: center;
   padding:20px;
@@ -84,8 +84,11 @@ button{
   border:3px goldenrod double;
   border-radius: 10px;
   font-weight: 800px;
-  font-size: larger;
+  /* font-size: larger; */
+  font-size: medium;
   font-family: 'Roboto Mono', monospace;
+  
+  
 }
 
 #pay_btn{
@@ -138,7 +141,8 @@ width: 250px;
   display: flex;
   
   justify-content: space-between;
-  margin-top:-70px;  
+  margin-top:-90px;  
+  
 }
 
 span{
@@ -186,10 +190,10 @@ span{
   border-color:#f1ff5c;
   color:darkmagenta;
   box-shadow: 0 0.9em 0.5em -0.4em #3E9C62;
-  transform:translateY(-0.25em);
-  transition: all 3s;
+  /* transform:translateY(-0.25em); */
+  transition: all 1s;
   cursor:pointer;
-  animation: shake 3s;
+  /* animation: shake 3s; */
 }
 
 @keyframes shake {
@@ -252,7 +256,7 @@ span{
 
 h3{
   color:white;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 
@@ -299,7 +303,8 @@ h3{
     
   }
   #credit-info{
-    width: 50px;
+    width: 80px;
+    font-size: smaller;
   }
   #deposit{
     width: 45px;
