@@ -40,7 +40,6 @@ const spinning_symbols = ['♠️','💖','🛎️','🍇',]
 
 /*------------------------ Cached Element References ------------------------*/
 const pay_btn = document.querySelector("#pay_btn")
-
 const play_btn = document.querySelector("#play_btn")
 const withdrawBtn =document.querySelector("#withdraw_btn")
 const first_slot=document.querySelector("#s1")
@@ -93,7 +92,8 @@ function playGame(){
      let numberFirst = Math.floor(Math.random()*10)
      let numberSecond = Math.floor(Math.random()*10)
      let numberThird = Math.floor(Math.random()*10)
-
+     
+  
 //call arr function
       display(ref,numberFirst,numberSecond,numberThird)
 }

@@ -2,13 +2,19 @@ body{
   background-color: rgb(0, 0, 0);
 }
 
-section{
+body{
 display: flex;
+flex-direction: column;
 justify-content: center;
-width:80%;
+align-items: center;
+width:100%;
+height: 100%;
 margin:0 auto;
 margin-top: 100px;;
+background: url('https://images.unsplash.com/photo-1531748049999-7217dc4cfbd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80') no-repeat center center fixed ;
+background-size: cover;
 }
+
 
 .container{
   display:flex;
@@ -16,24 +22,26 @@ margin-top: 100px;;
   align-items: center;
   flex-wrap: wrap;
   width:800px;
-  height:500px;
-  border-radius: 35% 35% 5px 5px;
-  background: rgb(131,58,180);
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(235,253,29,1) 50%, rgba(252,176,69,1) 100%); 
+  height:680px;
+  border-radius: 78px/190px 190px  190px 190px;
+  border: 10px goldenrod double;
+  /* background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(235,253,29,1) 50%, rgba(252,176,69,1) 100%);  */
+  background-color: #ffea00;
 }
 
-section div {
-  width:20%;
-  height:200px;
-  border:5px solid red;
+.slots {
+  width:30%;
+  height:500px;
+  border:5px goldenrod double;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   position:relative;
   top: -40px;
   background: rgb(131,58,180);
   background: rgb(254, 197, 187);
-  background:black;
+  background:#f8f9fa;
 }
 
 .paychart{
@@ -105,33 +113,50 @@ font-size: 50px;
 
 .container2{
   display: flex;
-  border:2px solid black;
+  
   justify-content: space-around;
-  margin-top:-40px;  
+  margin-top:-70px;  
 }
 
 span{
-  font-size: 52px;
+  font-size: 82px;
 }
 
 #slot-1,#slot-2,#slot-3{
   overflow: hidden;
 }
 
+#slot-1{
+  border-radius: 95px/145px 0 0 145px;
+
+  
+}
+#slot-3{
+  border-radius: 95px/0 145px 145px 0;
+}
+
 #win-amount{
   width:80%;
-  height:40px;
+  height:3em;
   margin-bottom: -200px;
   margin-top:-200px;
+  border: 5px goldenrod double;
+  border-radius: 25px/75px 75px 0 0;
+  -webkit-animation: glow 0.5s ease-in-out infinite alternate;
+    -moz-animation: glow 0.5s ease-in-out infinite alternate;
+    animation: glow 0.5s ease-in-out infinite alternate;
   position:relative;
   top:20px;
   color: rgb(211, 203, 203);
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
-  font-size: 20px; 
+  font-size: 1.8em;
+  padding-top:5px;
+  
+  background-color: black;
 }
 
-#win-amount,#deposit,.container,button:hover{
+/* #win-amount,#deposit,.container,button:hover{
   border-color:#f1ff5c;
   color:darkmagenta;
   box-shadow: 0 0.9em 0.5em -0.4em #3E9C62;
@@ -139,9 +164,9 @@ span{
   transition: all 3s;
   cursor:pointer;
   animation: shake 3s;
-}
+} */
 
-@keyframes shake {
+/* @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
   20% { transform: translate(-3px, 0px) rotate(1deg); }
@@ -153,8 +178,18 @@ span{
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
+} */
 
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6;
+  }
+}
 @media screen and (max-width:740px) {
   #win-amount{
     font-size: 13px;
